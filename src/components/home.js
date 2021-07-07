@@ -1,39 +1,53 @@
-import axios from 'axios'
-import React, { Component } from 'react'
 
-export default class Home extends Component {
-    state ={};
-     componentDidMount(){
-         const config ={
-             headers: {
-                 Authorization: 'Bearer' + localStorage.getItem('token')
-              
-             }
-            
-         };
-         console.log(config);
-        axios.get('user', config).then(
-            res =>{
-                this.setState({
-                    user: res.data
-                    
-                });
-                console.log(res.data)
-            },
-            err =>{
-                console.log(err)
-            }
-        )
-     }
+import React, { Component } from 'react'
+import LandingPage from './views/LandingPage/LandingPage'
+
+import imagsss from "./../login.PNG"
+
+import { Login } from './login';
+import TendanceVideo from './views/Tendance/TendanceVideo';
+import NewPlaylist from './views/LandingPage/NewPlaylist';
+
+
+
+export default class home extends Component {
+
     render() {
-if(this.state.data){
-    return(
-        <h2>logged {this.state.user.displayName}</h2>
-    )
-}
+       
+        if (this.props.user) {
+
+
+
+            return (
+                <div>
+                    <h1>
+                    
+               
+                   
+                    </h1>
+
+         <hr/><hr/>
+
+                    <div class="container">
+        
+
+
+                        
+                        <div class="row g-0">
+  <div class="col-sm-6 col-md-8">   <LandingPage /></div>
+  <div class="col-6 col-md-4">  <TendanceVideo /></div>
+</div>   
+                    </div>
+                 </div>
+            )
+        }
         return (
             <div>
-                <h1>Not logged</h1>
+                <Login />
+
+
+               
+
             </div>
         )
     }

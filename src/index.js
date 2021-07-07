@@ -4,9 +4,10 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import axios from 'axios';
+import './App.scss';
 
-
-axios.defaults.baseURL= "http://localhost:21929/api/"
+axios.defaults.baseURL= "http://localhost:21929/api/";
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

@@ -1,5 +1,6 @@
 import React from "react";
-import "../../App.scss";
+import { Redirect } from "react-router";
+
 import { Login, Register } from "./index";
 
 class Auth extends React.Component {
@@ -8,6 +9,7 @@ class Auth extends React.Component {
     this.state = {
       isLogginActive: true
     };
+   
   }
 
   componentDidMount() {
@@ -17,6 +19,7 @@ class Auth extends React.Component {
 
   changeState() {
     const { isLogginActive } = this.state;
+
 
     if (isLogginActive) {
       this.rightSide.classList.remove("right");
